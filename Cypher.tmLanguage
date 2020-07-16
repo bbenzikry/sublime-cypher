@@ -84,7 +84,15 @@
 			<array>
 				<dict>
 					<key>comment</key>
-					<string>List of Cypher built-in functions from http://docs.neo4j.org/chunked/milestone/query-function.html</string>
+					<string>List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/</string>
+					<key>match</key>
+					<string>(?i)\b(ACOS|ASIN|ATAN|ATAN2|COS|COT|DEGREES|HAVERSIN|PI|RADIANS|SIN|TAN)(?=\s*\()</string>
+					<key>name</key>
+					<string>support.function.trigonometric.cypher</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/</string>
 					<key>match</key>
 					<string>(?i)\b(NOT)(?=\s*\()</string>
 					<key>name</key>
@@ -92,23 +100,47 @@
 				</dict>
 				<dict>
 					<key>comment</key>
-					<string>List of Cypher built-in functions from http://docs.neo4j.org/chunked/milestone/query-function.html</string>
+					<string>List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/</string>
 					<key>match</key>
-					<string>(?i)\b(ALL|ANY|NONE|SINGLE)(?=\s*\()</string>
+					<string>(?i)\b(DISTANCE|POINT)(?=\s*\()</string>
+					<key>name</key>
+					<string>support.function.spatial.cypher</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/</string>
+					<key>match</key>
+					<string>(?i)\b(DATE|DATE\.REALTIME|DATE\.STATEMENT|DATE\.TRANSACTION|DATE\.TRUNCATE|DATETIME|DATETIME\.REALTIME|DATETIME\.STATEMENT|DATETIME\.TRANSACTION|DATETIME\.TRUNCATE|DURATION|DURATION\.BETWEEN|DURATION\.INDAYS|DURATION\.INMONTHS|DURATION\.INSECONDS|LOCALDATETIME|LOCALDATETIME\.REALTIME|LOCALDATETIME\.STATEMENT|LOCALDATETIME\.TRANSACTION|LOCALDATETIME\.TRUNCATE|LOCALTIME|LOCALTIME\.REALTIME|LOCALTIME\.STATEMENT|LOCALTIME\.TRANSACTION|LOCALTIME\.TRUNCATE|TIME|TIME\.REALTIME|TIME\.STATEMENT|TIME\.TRANSACTION|TIME\.TRUNCATE)(?=\s*\()</string>
+					<key>name</key>
+					<string>support.function.temporal.cypher</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/</string>
+					<key>match</key>
+					<string>(?i)\b(KEYS|LABELS|NODES|RANGE|REDUCE|RELATIONSHIPS|REVERSE|TAIL)(?=\s*\()</string>
+					<key>name</key>
+					<string>support.function.list.cypher</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/</string>
+					<key>match</key>
+					<string>(?i)\b(E|EXP|LOG|LOG10|SQRT)(?=\s*\()</string>
+					<key>name</key>
+					<string>support.function.logarithmic.cypher</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/</string>
+					<key>match</key>
+					<string>(?i)\b(ALL|ANY|EXISTS|NONE|SINGLE)(?=\s*\()</string>
 					<key>name</key>
 					<string>support.function.predicate.cypher</string>
 				</dict>
 				<dict>
 					<key>comment</key>
-					<string>List of Cypher built-in functions from http://docs.neo4j.org/chunked/milestone/query-function.html</string>
-					<key>match</key>
-					<string>(?i)\b(LENGTH|TYPE|ID|COALESCE|HEAD|LAST)(?=\s*\()</string>
-					<key>name</key>
-					<string>support.function.scalar.cypher</string>
-				</dict>
-				<dict>
-					<key>comment</key>
-					<string>List of Cypher built-in functions from http://docs.neo4j.org/chunked/milestone/query-function.html</string>
+					<string>List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/</string>
 					<key>match</key>
 					<string>(?i)\b(NODES|RELATIONSHIPS|EXTRACT|FILTER|TAIL|RANGE|REDUCE)(?=\s*\()</string>
 					<key>name</key>
@@ -116,27 +148,35 @@
 				</dict>
 				<dict>
 					<key>comment</key>
-					<string>List of Cypher built-in functions from http://docs.neo4j.org/chunked/milestone/query-function.html</string>
+					<string>List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/</string>
 					<key>match</key>
-					<string>(?i)\b(ABS|ROUND|SQRT|SIGN)(?=\s*\()</string>
+					<string>(?i)\b(ABS|CEIL|FLOOR|RAND|ROUND|SIGN)(?=\s*\()</string>
 					<key>name</key>
-					<string>support.function.math.cypher</string>
+					<string>support.function.numeric.cypher</string>
 				</dict>
 				<dict>
 					<key>comment</key>
-					<string>List of Cypher built-in functions from http://docs.neo4j.org/chunked/milestone/query-function.html</string>
+					<string>List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/</string>
 					<key>match</key>
-					<string>(?i)\b(count|sum|avg|max|min|percentile_disc|percentile_cont|collect)(?=\s*\()</string>
+					<string>(?i)\b(AVG|COLLECT|COUNT|MAX|MIN|PERCENTILECONT|PERCENTILEDISC|STDEV|STDEVP|SUM)(?=\s*\()</string>
 					<key>name</key>
 					<string>support.function.aggregation.cypher</string>
 				</dict>
 				<dict>
 					<key>comment</key>
-					<string>List of Cypher built-in functions from http://docs.neo4j.org/chunked/milestone/query-function.html</string>
+					<string>List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/</string>
 					<key>match</key>
-					<string>(?i)\b(STR|REPLACE|SUBSTRING|LEFT|RIGHT|LTRIM|RTRIM|TRIM|LOWER|UPPER)(?=\s*\()</string>
+					<string>(?i)\b(LEFT|LTRIM|REPLACE|RIGHT|RTRIM|SPLIT|SUBSTRING|TOLOWER|TOSTRING|TOUPPER|TRIM)(?=\s*\()</string>
 					<key>name</key>
 					<string>support.function.string.cypher</string>
+				</dict>
+				<dict>
+					<key>comment</key>
+					<string>List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/</string>
+					<key>match</key>
+					<string>(?i)\b(COALESCE|ENDNODE|HEAD|ID|LAST|LENGTH|PROPERTIES|RANDOMUUID|SIZE|STARTNODE|TIMESTAMP|TOBOOLEAN|TOFLOAT|TOINTEGER|TYPE)(?=\s*\()</string>
+					<key>name</key>
+					<string>support.function.scalar.cypher</string>
 				</dict>
 			</array>
 		</dict>
@@ -164,13 +204,13 @@
 			<array>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(START|MATCH|WHERE|RETURN|CREATE|DELETE|SET|FOREACH|WITH|CYPHER|DISTINCT|AS|LIMIT|SKIP|UNIQUE|ORDER\s+BY)\b</string>
+					<string>(?i)\b(ALTER|ALTER\s+CURRENT\s+USER|AS|ASSERT|CALL|CHANGE\s+NOT\s+REQUIRED|CHANGE\s+REQUIRED|COPY\s+OF|CREATE|CREATE\s+CONSTRAINT|CREATE\s+INDEX|CYPHER|DELETE|DENY|DETACH\s+DELETE|DISTINCT|DROP|EXISTS|FOR|FOREACH|FROM|GRANT|LIMIT|LOAD\s+CSV|MATCH|MERGE|ON|ON\s+CREATE|ON\s+MATCH|OPTIONAL|ORDER\s+BY|POPULATED|REMOVE|RETURN|REVOKE|ROLE|ROLES|SET|SET\s+PASSWORD|SET\s+STATUS\s+ACTIVE|SET\s+STATUS\s+SUSPENDED|SKIP|START|TO|UNION|UNION\s+ALL|UNIQUE|UNWIND|USE|USERS|USING\s+INDEX|USING\s+INDEX\s+SEEK|USING\s+JOIN\s+ON|USING\s+PERIODIC\s+COMMIT|USING\s+SCAN|WHERE|WITH|YIELD)\b</string>
 					<key>name</key>
 					<string>keyword.control.clause.cypher</string>
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>(?i)\b(DESC|ASC)\b</string>
+					<string>(?i)\b(DESC|DESCENDING|ASC|ASCENDING)\b</string>
 					<key>name</key>
 					<string>keyword.other.order.cypher</string>
 				</dict>
