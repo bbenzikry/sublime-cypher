@@ -2,16 +2,28 @@
 
 A plugin for working with [Neo4j](http://www.neo4j.org)'s [Cypher](http://docs.neo4j.org/chunked/milestone/cypher-query-lang.html) query language in [SublimeText](http://www.sublimetext.com).
 
+# Fork differences
 
-# Installation
+* Contains the Cypher 4.1 keywords and functions
+* Contains the UTF-8 Fix from [fredbenenson](https://github.com/fredbenenson/sublime-cypher)
+
+# Installation - Sublime Text 2
 
 * If you don't have it already install [Sublime Package Control](http://wbond.net/sublime_packages/package_control)
 * See [Package Control usage](http://wbond.net/sublime_packages/package_control/usage)
-* Open the Command Pallete (cmd+shift+p)
+* Open the Command Pallete (`CTRL+SHIFT+P`)
 * Select "Install Package"
 * Select "Cyper"
 
 The plugin will detect files ending in `.cql` or `.cyp` as Cypher, optionally just select Cypher from the Syntax menu. 
+
+# Installation - Sublime Text 3
+
+1. Download the [zip](https://github.com/cskardon/sublime-cypher/archive/master.zip) of this repository
+2. Open Sublime Text 3, and go to ‘Browse Packages’ (`CTRL + SHIFT + P` then type ‘browse’ and hit ENTER)
+3. Unzip the repository into that folder - (your packages folder should have new folder called 'Cypher' or something, )
+4. Restart Sublime Text 3.
+5. Open a file containing some Cypher queries and switch to Cypher mode (`CTRL + SHIFT + P` then type ‘Cypher’ and hit ENTER)
 
 
 # Usage
