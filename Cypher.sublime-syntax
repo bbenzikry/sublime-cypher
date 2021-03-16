@@ -1,0 +1,167 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: Cypher
+file_extensions:
+  - cql
+  - cyp
+scope: source.cypher
+contexts:
+  main:
+    - include: comments
+    - include: constants
+    - include: keywords
+    - include: functions
+    - include: path-patterns
+    - include: operators
+    - include: identifiers
+    - include: properties_literal
+    - include: numbers
+    - include: strings
+  comments:
+    - match: //.*$\n?
+      scope: comment.line.double-slash.cypher
+  constants:
+    - match: \bTRUE|true|FALSE|false\b
+      scope: constant.language.bool.cypher
+  functions:
+    - match: (?i)\b(ACOS|ASIN|ATAN|ATAN2|COS|COT|DEGREES|HAVERSIN|PI|RADIANS|SIN|TAN)(?=\s*\()
+      comment: List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/
+      scope: support.function.trigonometric.cypher
+    - match: (?i)\b(NOT)(?=\s*\()
+      comment: List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/
+      scope: keyword.control.function.boolean.cypher
+    - match: (?i)\b(DISTANCE|POINT)(?=\s*\()
+      comment: List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/
+      scope: support.function.spatial.cypher
+    - match: (?i)\b(DATE|DATE\.REALTIME|DATE\.STATEMENT|DATE\.TRANSACTION|DATE\.TRUNCATE|DATETIME|DATETIME\.REALTIME|DATETIME\.STATEMENT|DATETIME\.TRANSACTION|DATETIME\.TRUNCATE|DURATION|DURATION\.BETWEEN|DURATION\.INDAYS|DURATION\.INMONTHS|DURATION\.INSECONDS|LOCALDATETIME|LOCALDATETIME\.REALTIME|LOCALDATETIME\.STATEMENT|LOCALDATETIME\.TRANSACTION|LOCALDATETIME\.TRUNCATE|LOCALTIME|LOCALTIME\.REALTIME|LOCALTIME\.STATEMENT|LOCALTIME\.TRANSACTION|LOCALTIME\.TRUNCATE|TIME|TIME\.REALTIME|TIME\.STATEMENT|TIME\.TRANSACTION|TIME\.TRUNCATE)(?=\s*\()
+      comment: List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/
+      scope: support.function.temporal.cypher
+    - match: (?i)\b(KEYS|LABELS|NODES|RANGE|REDUCE|RELATIONSHIPS|REVERSE|TAIL)(?=\s*\()
+      comment: List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/
+      scope: support.function.list.cypher
+    - match: (?i)\b(E|EXP|LOG|LOG10|SQRT)(?=\s*\()
+      comment: List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/
+      scope: support.function.logarithmic.cypher
+    - match: (?i)\b(ALL|ANY|EXISTS|NONE|SINGLE)(?=\s*\()
+      comment: List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/
+      scope: support.function.predicate.cypher
+    - match: (?i)\b(NODES|RELATIONSHIPS|EXTRACT|FILTER|TAIL|RANGE|REDUCE)(?=\s*\()
+      comment: List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/
+      scope: support.function.collection.cypher
+    - match: (?i)\b(ABS|CEIL|FLOOR|RAND|ROUND|SIGN)(?=\s*\()
+      comment: List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/
+      scope: support.function.numeric.cypher
+    - match: (?i)\b(AVG|COLLECT|COUNT|MAX|MIN|PERCENTILECONT|PERCENTILEDISC|STDEV|STDEVP|SUM)(?=\s*\()
+      comment: List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/
+      scope: support.function.aggregation.cypher
+    - match: (?i)\b(LEFT|LTRIM|REPLACE|RIGHT|RTRIM|SPLIT|SUBSTRING|TOLOWER|TOSTRING|TOUPPER|TRIM)(?=\s*\()
+      comment: List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/
+      scope: support.function.string.cypher
+    - match: (?i)\b(COALESCE|ENDNODE|HEAD|ID|LAST|LENGTH|PROPERTIES|RANDOMUUID|SIZE|STARTNODE|TIMESTAMP|TOBOOLEAN|TOFLOAT|TOINTEGER|TYPE)(?=\s*\()
+      comment: List of Cypher built-in functions from https://neo4j.com/docs/cypher-manual/current/keyword-glossary/
+      scope: support.function.scalar.cypher
+  identifiers:
+    - match: "`.+?`"
+      scope: variable.other.quoted-identifier.cypher
+    - match: "[a-zA-Z_][a-zA-Z0-9_]*"
+      scope: variable.other.identifier.cypher
+  keywords:
+    - match: (?i)\b(ALTER|ALTER\s+CURRENT\s+USER|AS|ASSERT|CALL|CHANGE\s+NOT\s+REQUIRED|CHANGE\s+REQUIRED|COPY\s+OF|CREATE|CREATE\s+CONSTRAINT|CREATE\s+INDEX|CYPHER|DELETE|DENY|DETACH\s+DELETE|DISTINCT|DROP|EXISTS|FOR|FOREACH|FROM|GRANT|LIMIT|LOAD\s+CSV|MATCH|MERGE|ON|ON\s+CREATE|ON\s+MATCH|OPTIONAL|ORDER\s+BY|POPULATED|REMOVE|RETURN|REVOKE|ROLE|ROLES|SET|SET\s+PASSWORD|SET\s+STATUS\s+ACTIVE|SET\s+STATUS\s+SUSPENDED|SKIP|START|TO|UNION|UNION\s+ALL|UNIQUE|UNWIND|USE|USERS|USING\s+INDEX|USING\s+INDEX\s+SEEK|USING\s+JOIN\s+ON|USING\s+PERIODIC\s+COMMIT|USING\s+SCAN|WHERE|WITH|YIELD)\b
+      scope: keyword.control.clause.cypher
+    - match: (?i)\b(DESC|DESCENDING|ASC|ASCENDING)\b
+      scope: keyword.other.order.cypher
+    - match: '(?i)\b(node|relationship|rel)((:)([a-zA-Z_-][a-zA-Z0-9_]*))?(?=\s*\()'
+      captures:
+        1: support.class.starting-functions-point.cypher
+        2: keyword.control.index-seperator.cypher
+        3: keyword.control.index-seperator.cypher
+        4: support.class.index.cypher
+      push:
+        - meta_scope: source.starting-functions.cypher
+        - match: \)
+          pop: true
+        - match: "((?:`.+?`)|(?:[a-zA-Z_][a-zA-Z0-9_]*))"
+          scope: variable.parameter.relationship-name.cypher
+        - match: (\*)
+          scope: keyword.control.starting-function-params,cypher
+        - include: comments
+        - include: numbers
+        - include: strings
+  numbers:
+    - match: \b\d+(\.\d+)?\b
+      scope: constant.numeric.cypher
+  operators:
+    - match: (\+|\-|\/|\*|\%|\?|!)
+      scope: keyword.operator.math.cypher
+    - match: (<=|=>|<>|<|>|=~|=)
+      scope: keyword.operator.compare.cypher
+    - match: (?i)\b(OR|AND)\b
+      scope: keyword.operator.logical.cypher
+    - match: (?i)\b(IN)\b
+      scope: keyword.operator.in.cypher
+  path-patterns:
+    - match: (<--|-->|--)
+      scope: support.function.relationship-pattern.cypher
+    - match: '(<-|-)(\[)'
+      captures:
+        1: support.function.relationship-pattern-start.cypher
+        2: keyword.operator.relationship-pattern-start.cypher
+      push:
+        - meta_scope: path-pattern.cypher
+        - match: "(])(->|-)"
+          captures:
+            1: keyword.operator.relationship-patern-end.cypher
+            2: support.function.relationship-pattern-start.cypher
+          pop: true
+        - include: identifiers
+        - match: "(:)((?:`.+?`)|(?:[a-zA-Z_][a-zA-Z0-9_]*))"
+          scope: entity.name.class.relationship-type.cypher
+          captures:
+            1: keyword.operator.relationship-type-start.cypher
+            2: entity.name.class.relationship.type.cypher
+        - match: '(\|)(\s*)((?:`.+?`)|(?:[a-zA-Z_][a-zA-Z0-9_]*))'
+          scope: entity.name.class.relationship-type-ored.cypher
+          captures:
+            1: support.type.operator.relationship-type-or.cypher
+            2: entity.name.class.relationship.type-or.cypher
+        - match: (?:\?\*|\?|\*)\s*(?:\d+\s*(?:\.\.\s*\d+)?)?
+          scope: support.function.relationship-pattern.quant.cypher
+        - include: properties_literal
+  properties_literal:
+    - match: "{"
+      captures:
+        0: keyword.control.properties_literal.cypher
+      push:
+        - meta_scope: source.cypher
+        - match: "}"
+          captures:
+            0: keyword.control.properties_literal.cypher
+          pop: true
+        - match: ":|,"
+          scope: keyword.control.properties_literal.seperator.cypher
+        - include: comments
+        - include: constants
+        - include: functions
+        - include: operators
+        - include: identifiers
+        - include: numbers
+        - include: strings
+  string_escape:
+    - match: '(\\\\|\\[tbnrf])|(\\''|\\")'
+      scope: constant.character.escape.cypher
+      captures:
+        2: string.quoted.double.cypher
+  strings:
+    - match: "'"
+      push:
+        - meta_scope: string.quoted.single.cypher
+        - match: "'"
+          pop: true
+        - include: string_escape
+    - match: '"'
+      push:
+        - meta_scope: string.quoted.double.cypher
+        - match: '"'
+          pop: true
+        - include: string_escape
