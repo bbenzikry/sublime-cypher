@@ -5,6 +5,7 @@ name: Cypher
 file_extensions:
   - cql
   - cyp
+  - cypher
 scope: source.cypher
 contexts:
   main:
